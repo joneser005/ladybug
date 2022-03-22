@@ -37,10 +37,6 @@ def setup_game(num_players, print_board=False):
             a{num} - gain {num} aphids
             m{num}[r] - move {num} squares.  If trailing 'r', go again.
     '''
-    deck = ['a1', 'a2', 'a3', 'a3', 'a4', 'm-1', 'm-2', 'm-3', 'm-4r', 'm-4r',
-            'm1', 'm1', 'm1', 'm1', 'm2', 'm2', 'm2', 'm2', 'm2r', 'm2r', 'm2r',
-            'm2r', 'm3', 'm3', 'm3', 'm3', 'm3r', 'm3r', 'm3r', 'm4', 'm4', 'm4',
-            'm4r', 'm4r', 'm5', 'm5', 'm6', 'm6']
     board = 'start 0 0 a3 mantiscard 0 slide13 0 mantiscard mantis-stop 0 0 0 a2 0 a5 0 a-2 0 0 m-2 0 0 a-1 0 0 ants-stop 0 lose-turn 0 0 0 lose-turn 0 finish 0 a1 0 a3 0 m-2 0 slide22'.split()
     if print_board:
         pprint.pprint([(x,y) for x,y in enumerate(board)])
@@ -48,7 +44,8 @@ def setup_game(num_players, print_board=False):
     players = [{'player_num': p,
                 'name': names[p],
                 'aphids': 0, 'position': 0, 'mantis_cards': 0} for p in range(num_players)]
-    return {'players': players, 'deck': deck, 'board': board}
+    # return {'players': players, 'deck': deck, 'board': board}
+    return {'players': players, 'board': board}
 
 
 def player_won(board, player):
